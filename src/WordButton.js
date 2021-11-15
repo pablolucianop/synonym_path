@@ -21,7 +21,7 @@ function Appo(props) {
   }
 
   
-  return <animated.div   style={propsi}> {props.synCard} </animated.div>
+  return <animated.div   style={propsi}> <h5>{props.synCard}</h5> </animated.div>
 }
 
 
@@ -38,11 +38,14 @@ export function WordButton (props)  {
 
     return (
       <div className="p-2">
-        <Card type="button" className="btn btn-light" style={props} >
-          
-          <h5 ><div onClick={submitHandler2}> <Appo synCard={props.synCard} index={props.index} > hhe</Appo></div><div>{(props.eee !== undefined) ? <span className="badge text-muted" onClick={submitHandler22}>╳</span> : ''}</div></h5> 
-        
-                 </Card>
+        <Card type="button" className="btn btn-light" style={props} flex-row>
+          {/* <h5><div onClick={submitHandler2}> <Appo synCard={props.synCard} index={props.index} ></Appo></div><div>{(props.eee !== undefined) ? <span className="badge text-muted" onClick={submitHandler22}>╳</span> : ''}</div></h5>  */}
+  <div className="d-flex flex-row">
+  <div className="p-2" onClick={submitHandler2}><Appo synCard={props.synCard} index={props.index} ></Appo></div>
+  <div className="p-2">{(props.eee !== undefined) ? <span className="badge text-muted" onClick={submitHandler22}>╳</span> : ''}</div>
+  </div>
+
+        </Card>
       </div>
     )
 }
