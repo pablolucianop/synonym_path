@@ -183,7 +183,7 @@ class App extends React.Component {
       <div>
 
         <Appo />
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="sm" >
           <Container fluid>
             <Navbar.Brand href="#">search synonims</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
