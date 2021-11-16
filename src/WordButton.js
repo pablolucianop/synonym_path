@@ -10,17 +10,6 @@ function Appo(props) {
     config: { duration: 1000 },
     delay: props.index*100,
   })
-  const submitHandler2 = (evt) =>{
-    evt.preventDefault();
-    props.submitHandler([props.synCard])
-  }
-
-  const submitHandler22 =(evt) => {
-    evt.preventDefault();
-    props.eee(props.synCard)
-  }
-
-  
   return <animated.div   style={propsi}> <h5>{props.synCard}</h5> </animated.div>
 }
 
@@ -38,7 +27,7 @@ export function WordButton (props)  {
 
     return (
       <div className="p-2">
-        <Card type="button" className="btn btn-light" style={props} flex-row>
+        <Card type="button" className="btn btn-light flex-row" style={props} >
           {/* <h5><div onClick={submitHandler2}> <Appo synCard={props.synCard} index={props.index} ></Appo></div><div>{(props.eee !== undefined) ? <span className="badge text-muted" onClick={submitHandler22}>╳</span> : ''}</div></h5>  */}
   <div className="d-flex flex-row">
   <div className="p-2" onClick={submitHandler2}><Appo synCard={props.synCard} index={props.index} ></Appo></div>

@@ -22,15 +22,12 @@ import { useSpring, animated } from 'react-spring'
 
 function Appo() {
   const props = useSpring({
-
-    // loop: { reverse: true },
     from: { opacity: 0 },
     to: { opacity: 1 },
     config: { duration: 1000 }
   })
   return <animated.div className="navigation-menu" style={props}>        <h1 >SINONIMS</h1></animated.div>
 }
-
 
 const RelatedF = (props) => {
   let related33 = props.related.map((x) => (
@@ -47,7 +44,6 @@ const RelatedF = (props) => {
     </div>
   )
 }
-
 
 class App extends React.Component {
   constructor(props) {
@@ -71,15 +67,16 @@ class App extends React.Component {
   handleChangeInput(event) {
     this.setState({ value: event.target.value })
   }
+
   handlePick(selectedWord) {
     this.setState({ picked: [...this.state.picked, selectedWord] })
     this.setState({ value: selectedWord }, () => {
       this.handleSubmitSearch()
     })
   }
+
   handleUnPick(selectedWord) {
     this.setState({ picked: this.state.picked.filter((x) => x !== selectedWord) })
-
   }
 
   async handleSubmitSearch(event) {
@@ -125,7 +122,6 @@ class App extends React.Component {
       let xSyn = []
 
       xterm = x.term.split(',').map((x) => x[0] === ' ' ? x.slice(1) : x)
-
       if (!(typeof x.synonyms === 'string' || x.synonyms instanceof String)) { x.synonyms = '' }
       if (x.synonyms.indexOf(',') !== -1) {
         xSyn = x.synonyms.split(',').map((x) => x[0] === ' ' ? x.slice(1) : x)
@@ -162,26 +158,18 @@ class App extends React.Component {
     //pass  array of {sin: [], term: '', main:''} to state
     let simpsObs = { todos: simples }
     this.setState({ allSyns: simpsObs })
-
-    // console.log(error)
-
-
   }
-
 
   setMainWord(event) {
     this.setState({ mainWord: event.target.value })
   }
 
-
   render() {
     const pull_data = (data) => {
       console.log(data);
     }
-
     return (
       <div>
-
         <Appo />
         <Navbar bg="light" expand="sm" >
           <Container fluid>
@@ -204,11 +192,9 @@ class App extends React.Component {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-
         <h3 bg="secondary">
           {this.state.related2.length > 0 ? <RelatedF related={this.state.related2} /> : null}
         </h3>
-
         <h2>
           <Badge bg="secondary">{this.state.mainWord}</Badge>
         </h2>
