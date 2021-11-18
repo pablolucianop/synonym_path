@@ -22,7 +22,7 @@ export function WordButton (props)  {
   })
     return (
       <animated.div style={propsi} className="p-2">
-        <Card type="button" className="btn btn-light flex-row" style={props} >
+        <Card type="button" className="btn btn-light flex-row shadow p-3 mb-5 bg-white rounded border-0" style={props} >
           <div className="d-flex flex-row">
             <div className="p-2" onClick={submitHandler2}><animated.h5 style={propsi}>{props.synCard}</animated.h5></div>
             {(props.eee !== undefined) ?  <div className="p-2"><span className="badge text-muted" onClick={submitHandler22}>╳</span></div> : ''}
