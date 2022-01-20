@@ -20,7 +20,7 @@ import { data } from './data'
 import { useSpring, animated } from 'react-spring'
 
 
-function Appo() {
+function Title() {
   const props = useSpring({
     from: { opacity: 0 },
     to: { opacity: 1 },
@@ -29,7 +29,7 @@ function Appo() {
   return <animated.div className="navigation-menu" style={props}> <h1 >SINONIMS</h1></animated.div>
 }
 
-const RelatedF = (props) => {
+const DidYouMean = (props) => {
   let related33 = props.related.map((x) => (
     <button type="button" className="btn btn-light">
       {x}
@@ -56,6 +56,7 @@ class App extends React.Component {
       mainWord: '',
       picked: [],
       uniques: [],
+    
     }
     this.setMainWord = this.setMainWord.bind(this)
     this.handleChangeInput = this.handleChangeInput.bind(this)
@@ -66,11 +67,11 @@ class App extends React.Component {
 
   handleChangeInput(event) {
     this.setState({ value: event.target.value })
-    
   }
 
   handlePick(selectedWord) {
-    this.setState({ picked: [...this.state.picked, selectedWord] })
+        let wordPure = (Array.isArray(selectedWord))?   selectedWord[0] :  selectedWord
+    // this.setState({ picked: [...this.state.picked, wordPure] })
     this.setState({ value: selectedWord }, () => {
     this.handleSubmitSearch()
     })
@@ -81,15 +82,18 @@ class App extends React.Component {
   }
 
   async handleSubmitSearch(event) {
+        console.log(44555)
     this.setState({ mainWord: this.state.value })
     console.log('this.state.value', this.state.value)
     let word = this.state.value
     let response = await axios.get(`https://www.abbreviations.com/services/v2/syno.php?uid=9413&tokenid=vIMVCwch6JUkn04H&word=${word}&format=json`)
+    
     if (response.data.error === 'Daily Usage Exceeded') {
       alert('This api is tired, let it rest for today')
       return
     }
     console.log('response.data.result', response.data)
+
     this.setState({ response: response.data.result })
     console.log('this.state.response', this.state.response)
 
@@ -150,6 +154,7 @@ class App extends React.Component {
         })
       })
     })
+
     //make an array of all the synonyms and filter duplicates
     let uniques = [...new Set(simples.map((synCard) => synCard.sin))]
     console.log('uniques', uniques)
@@ -159,6 +164,8 @@ class App extends React.Component {
     //pass  array of {sin: [], term: '', main:''} to state
     let simpsObs = { todos: simples }
     this.setState({ allSyns: simpsObs })
+    let wordPure = (Array.isArray(word))?   word[0] :  word
+        this.setState({ picked: [...this.state.picked, wordPure] })
   }
 
   setMainWord(event) {
@@ -171,7 +178,7 @@ class App extends React.Component {
     }
     return (
       <div>
-        <Appo />
+        <Title />
         <Navbar bg="light" expand="sm" >
           <Container fluid>
             <Navbar.Brand href="#">search synonims</Navbar.Brand>
@@ -194,11 +201,10 @@ class App extends React.Component {
           </Container>
         </Navbar>
         <h3 bg="secondary">
-          {this.state.related2.length > 0 ? <RelatedF related={this.state.related2} /> : null}
+          {this.state.related2.length > 0 ? <DidYouMean related={this.state.related2} /> : null}
         </h3>
         <h2>
-          <Badge bg="secondary">{!(this.state.response=== undefined)? this.state.response[0].term : ''}</Badge>
-          {console.log(444,this.state.response)}
+          {/* <Badge bg="secondary">{!(this.state.response=== undefined)? this.state.response[0].term : ''}</Badge> */}
         </h2>
         <Closer todos={this.state.picked} handleUnPick={this.handleUnPick} />
         <Yard uniques={this.state.uniques} handlePick={this.handlePick} handleUnPick={this.handleUnPick} func={pull_data} onHeaderClick={this.handleSort} />
