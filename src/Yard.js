@@ -27,8 +27,10 @@ export class Yard   extends React.Component  {
   render() {
         let navLinks
     // if (this.props.todos !== undefined) {
+      console.log('this.props.uniques', this.props.uniques)
+
          navLinks = this.props.uniques.map((synCard, index) => {
-        return <WordButton synCard={synCard} key={synCard + index} index={index} submitHandler={this.submitHandler} />
+        return <WordButton synCard={synCard.term} key={synCard + index} index={index} submitHandler={this.submitHandler} />
       })
     // }
  

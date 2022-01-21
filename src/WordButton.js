@@ -20,6 +20,38 @@ export function WordButton (props)  {
     config: { duration: 1000 },
     delay: props.index*100,
   })
+
+  function spliter(synCard) {
+    let xSyn
+      if (synCard.indexOf(',') !== -1) {
+        xSyn = synCard.split(',').map((x) => x[0] === ' ' ? x.slice(1) : x)
+      } else {
+        xSyn = synCard
+      }
+      return  xSyn
+  }
+
+
+
+
+    let splitted = spliter(props.synCard) 
+    console.log('splitted222', splitted)
+
+
+let  navLinks
+
+if( Array.isArray(splitted)){
+        navLinks= splitted.map((word, index) => {
+        console.log('splitted2', splitted)
+        console.log('splitted2', Array.isArray(splitted))
+        return <Card  key={word + index}   > {word} </Card>
+      })
+}
+
+
+
+
+
     return (
       <animated.div style={propsi} className="p-2">
         <Card type="button" className="btn btn-light flex-row shadow p-3 mb-5 bg-white rounded border-0" style={props} >
@@ -27,7 +59,9 @@ export function WordButton (props)  {
             <div className="p-2" onClick={submitHandler2}><animated.h5 style={propsi}>{props.synCard}</animated.h5></div>
             {(props.eee !== undefined) ?  <div className="p-2"><span className="badge text-muted" onClick={submitHandler22}>╳</span></div> : ''}
           </div>
+          {navLinks}
         </Card>
+        
       </animated.div>
     )
 }

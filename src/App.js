@@ -19,6 +19,11 @@ import { Closer } from './Closer'
 import { data } from './data'
 import { useSpring, animated } from 'react-spring'
 
+          <span className="font-link">
+              This is with Font Link. We are linking the fonts from the Google Fonts.
+          </span>
+
+
 
 function Title() {
   const props = useSpring({
@@ -26,7 +31,9 @@ function Title() {
     to: { opacity: 1 },
     config: { duration: 1000 }
   })
-  return <animated.div className="navigation-menu" style={props}> <h1 >SINONIMS</h1></animated.div>
+
+
+  return <animated.div className="navigation-menu font-link" style={props}> <h1 >TRAVEL BETWEEN WORDS THROUGH SINONIMS</h1></animated.div>
 }
 
 const DidYouMean = (props) => {
@@ -156,7 +163,10 @@ class App extends React.Component {
     })
 
     //make an array of all the synonyms and filter duplicates
-    let uniques = [...new Set(simples.map((synCard) => synCard.sin))]
+    // let uniques = [...new Set(simples.map((synCard) => synCard.sin))]
+        let uniques =  response.data.result 
+    //make unikes more complex, nos just words but objects
+    
     console.log('uniques', uniques)
     //pass all uniques to state
     this.setState({ uniques: uniques })

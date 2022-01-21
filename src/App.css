@@ -12,6 +12,13 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.font-link {
+  font-family: 'Roboto Slab', serif !important;
+}
+
+body {
+  font-family: 'Roboto Slab', serif !important;
+}
 
 .App-header {
   background-color: #282c34;
@@ -36,3 +43,5 @@
     transform: rotate(360deg);
   }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200&display=swap');
