@@ -114,7 +114,15 @@ class App extends React.Component {
       return
     }
 
-    this.setState({ response: response.data.result })
+  
+console.log('     Array.isArray(response.data.result )',      Array.isArray(response.data.result ))
+
+if( !Array.isArray(response.data.result)){
+  response.data.result = [response.data.result]
+}
+
+
+    this.setState({ response:   response.data.result  })
 
     console.log('response',  response.data.result )
 
