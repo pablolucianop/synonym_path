@@ -89,9 +89,8 @@ class App extends React.Component {
   }
 
   async handleSubmitSearch(event) {
-        console.log(44555)
     this.setState({ mainWord: this.state.value })
-    console.log('this.state.value', this.state.value)
+    // console.log('this.state.value', this.state.value)
     let word = this.state.value
     let response = await axios.get(`https://www.abbreviations.com/services/v2/syno.php?uid=9413&tokenid=vIMVCwch6JUkn04H&word=${word}&format=json`)
     // console.log('response', response)
@@ -114,15 +113,13 @@ class App extends React.Component {
       alert('This api is tired, let it rest for today')
       return
     }
-    console.log('response.data.result', response.data)
 
     this.setState({ response: response.data.result })
-    console.log('this.state.response', this.state.response)
+
+    console.log('response',  response.data.result )
 
     //if the word isnt an english word, show related words
     if (response.data.result === undefined) {
-      console.log('exito')
-      console.log(response.data.related)
       let related = response.data.related.map((x) => (
         <button type="button" className="btn btn-light">
           {x.term}
@@ -181,8 +178,6 @@ class App extends React.Component {
     // let uniques = [...new Set(simples.map((synCard) => synCard.sin))]
         let uniques =  response.data.result 
     //make unikes more complex, nos just words but objects
-    
-    console.log('uniques', uniques)
     //pass all uniques to state
     this.setState({ uniques: uniques })
 
@@ -199,7 +194,7 @@ class App extends React.Component {
 
   render() {
     const pull_data = (data) => {
-      console.log(data);
+      // console.log(data);
     }
     return (
       <div>

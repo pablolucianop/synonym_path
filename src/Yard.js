@@ -6,7 +6,7 @@ export class Yard   extends React.Component  {
   constructor() {
     super();
     this.submitHandler = this.submitHandler.bind(this);
-        this.submitHandler2 = this.submitHandler2.bind(this);
+    this.submitHandler2 = this.submitHandler2.bind(this);
     this.state = {
       inputField: ''
     };
@@ -27,7 +27,6 @@ export class Yard   extends React.Component  {
   render() {
         let navLinks
     // if (this.props.todos !== undefined) {
-      console.log('this.props.uniques', this.props.uniques)
 
          navLinks = this.props.uniques.map((synCard, index) => {
         return <WordButton synCard={synCard.term} key={synCard + index} index={index} submitHandler={this.submitHandler} />
@@ -39,26 +38,3 @@ export class Yard   extends React.Component  {
   }
 }
 
-// export function Yard2 (props)  {
-
-//   const [inputField, setInputField] = useState('');
-
-//   const submitHandler2 = (evt) =>{
-//     evt.preventDefault();
-//     props.submitHandler([props.synCard])
-//   }
-
-//   const submitHandler22 =(evt) => {
-//     evt.preventDefault();
-//     props.eee(props.synCard)
-//   }
-
-//       let navLinks
-//     // if (this.props.todos !== undefined) {
-//          navLinks = this.props.uniques.map((synCard, index) => {
-//         return <WordButton synCard={synCard} key={synCard + index} submitHandler={this.submitHandler} index={index} />
-//       })
-
-//     return (<div className="d-flex flex-row flex-wrap">{navLinks} 
-//     </div>)
-// }

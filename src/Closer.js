@@ -12,14 +12,13 @@ export class Closer extends React.Component {
     // pass the input field value to the event handler passed
     // as a prop by the parent (App)
     this.props.handleUnPick(evt);
-    console.log('evto0000',evt)
     
     // this.setState({
     //   inputField: ''
     // });
   }
   render() {
-    console.log('this.props.todos', this.props.todos)
+    // console.log('this.props.todos', this.props.todos)
     let navLinks
     if (this.props.todos !== undefined) {
       let uniques = this.props.todos

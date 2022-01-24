@@ -37,15 +37,13 @@ export function WordButton (props)  {
 
 
     let splitted = spliter(props.synCard) 
-    console.log('splitted222', splitted)
+    // console.log('splitted222', splitted)
 
 
 let  navLinks
 
 if( Array.isArray(splitted)){
         navLinks= splitted.map((word, index) => {
-        console.log('splitted2', splitted)
-        console.log('splitted2', Array.isArray(splitted))
         return <SingleWord  key={word + index} submitHandler={props.submitHandler} word={word}  />
       })
 }
