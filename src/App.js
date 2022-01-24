@@ -93,8 +93,23 @@ class App extends React.Component {
     this.setState({ mainWord: this.state.value })
     console.log('this.state.value', this.state.value)
     let word = this.state.value
-    let response = await axios.get(`https://www.abbreviations.com/services/v2/syno.php?uid=9413&tokenid=vIMVCwch6JUkn04H&word=${word}&format=json`)
-    
+    // let response = await axios.get(`https://www.abbreviations.com/services/v2/syno.php?uid=9413&tokenid=vIMVCwch6JUkn04H&word=${word}&format=json`)
+    // console.log('response', response)
+
+    let mockUpResponse = {
+      data: {
+        result: [
+        {term: 'sad, poor , son of a bitch', definition: 'experiencing or showing sorrow or unhappiness', example: '"feeling sad because his dog had died"; "Better by…u should remember and be sad"- Christina Rossetti', partofspeech: 'adj', synonyms: 'deplorable, lamentable, pitiful, distressing, sorry'},
+        {term: 'mornfull, depressed', definition: 'of things that make you feel sad', example: `"sad news"; "she doesn't like sad movies"; "it was…, / Sing no sad songs for me"- Christina Rossetti`, partofspeech: 'adj', synonyms: 'deplorable, lamentable, pitiful, distressing, sorry'},
+        {term: 'deplorable, distressing, lamentable, pitiful, sad, sorry', definition: 'bad; unfortunate', example: '"my finances were in a deplorable state"; "a lamen…es were in sad shape"; "a sorry state of affairs"', partofspeech: 'adj', synonyms: 'regretful, deplorable, hapless'}
+        ]
+      }, 
+      status: 200, 
+      statusText: '', 
+      headers: {}, 
+      config: {}
+    }
+     let response = mockUpResponse
     if (response.data.error === 'Daily Usage Exceeded') {
       alert('This api is tired, let it rest for today')
       return
