@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Badge from 'react-bootstrap/Badge'
 import Card from 'react-bootstrap/Card'
+import { SingleWord } from './SingleWord'
 import { useSpring, animated } from 'react-spring'
 
 
@@ -11,6 +12,7 @@ export function WordButton (props)  {
   }
 
   const submitHandler22 =(evt) => {
+
     evt.preventDefault();
     props.eee(props.synCard)
   }
@@ -44,7 +46,7 @@ if( Array.isArray(splitted)){
         navLinks= splitted.map((word, index) => {
         console.log('splitted2', splitted)
         console.log('splitted2', Array.isArray(splitted))
-        return <Card  key={word + index}   > {word} </Card>
+        return <SingleWord  key={word + index} submitHandler={submitHandler2} word={word}  />
       })
 }
 
