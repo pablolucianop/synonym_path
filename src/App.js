@@ -93,7 +93,7 @@ class App extends React.Component {
     this.setState({ mainWord: this.state.value })
     console.log('this.state.value', this.state.value)
     let word = this.state.value
-    // let response = await axios.get(`https://www.abbreviations.com/services/v2/syno.php?uid=9413&tokenid=vIMVCwch6JUkn04H&word=${word}&format=json`)
+    let response = await axios.get(`https://www.abbreviations.com/services/v2/syno.php?uid=9413&tokenid=vIMVCwch6JUkn04H&word=${word}&format=json`)
     // console.log('response', response)
 
     let mockUpResponse = {
@@ -109,7 +109,7 @@ class App extends React.Component {
       headers: {}, 
       config: {}
     }
-     let response = mockUpResponse
+    //  let response = mockUpResponse
     if (response.data.error === 'Daily Usage Exceeded') {
       alert('This api is tired, let it rest for today')
       return

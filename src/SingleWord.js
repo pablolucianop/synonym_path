@@ -11,7 +11,8 @@ export function SingleWord (props)  {
     props.submitHandler([props.word])
   }
   const submitHandler3 = (evt) =>{
-
+    evt.preventDefault();
+    props.submitHandler([props.word])
     console.log('[props.word]', [props.word])
 
   }
