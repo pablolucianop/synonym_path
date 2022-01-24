@@ -33,7 +33,7 @@ function Title() {
   })
 
 
-  return <animated.div className="navigation-menu font-link" style={props}> <h1 >TRAVEL BETWEEN WORDS THROUGH SINONIMS</h1></animated.div>
+  return <animated.div className="navigation-menu font-link" style={props}> <h1 >TRAVEL BETWEEN WORDS THROUGH SYNONYMS</h1></animated.div>
 }
 
 const DidYouMean = (props) => {
