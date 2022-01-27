@@ -88,6 +88,14 @@ class App extends React.Component {
     this.setState({ picked: this.state.picked.filter((x) => x !== selectedWord) })
   }
 
+
+
+async handleKeyUp(event) {
+  if (event.key === 'Enter') {
+      console.log('do validate');
+    }
+}
+
   async handleSubmitSearch(event) {
     this.setState({ mainWord: this.state.value })
     // console.log('this.state.value', this.state.value)
@@ -221,7 +229,7 @@ if( !Array.isArray(response.data.result)){
                   value={this.state.value}
                   onChange={this.handleChangeInput}
                 />
-                <Button variant="outline-success" onClick={this.handleSubmitSearch}>
+                <Button variant="outline-success" onClick={this.handleSubmitSearch}  onKeyUp={this.handleKeyUp}>
                   Search
                 </Button>
               </Form>
@@ -235,7 +243,7 @@ if( !Array.isArray(response.data.result)){
           {/* <Badge bg="secondary">{!(this.state.response=== undefined)? this.state.response[0].term : ''}</Badge> */}
         </h2>
         <Closer todos={this.state.picked} handleUnPick={this.handleUnPick} />
-        <Yard uniques={this.state.uniques} handlePick={this.handlePick} handleUnPick={this.handleUnPick} func={pull_data} onHeaderClick={this.handleSort} />
+        <Yard uniques={this.state.uniques} handlePick={this.handlePick}  response={this.state} handleUnPick={this.handleUnPick} func={pull_data} onHeaderClick={this.handleSort} />
         <div>
         </div>
       </div>

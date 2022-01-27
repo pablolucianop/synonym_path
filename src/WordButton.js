@@ -62,6 +62,10 @@ if( Array.isArray(splitted)){
             {(props.eee !== undefined) ?  <div className="p-2"><span className="badge text-muted" onClick={submitHandler22}>╳</span></div> : ''}
           </div>
           {navLinks}
+          {(props.complete !== undefined) ? <small> {props.complete.definition}</small> : ''}
+            { 
+            console.log('props.complete', props.complete)}
+                  
         </Card>
         
       </animated.div>

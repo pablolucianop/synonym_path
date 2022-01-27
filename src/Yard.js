@@ -22,8 +22,10 @@ export function Yard (props)  {
 
         let navLinks
          navLinks = props.uniques.map((synCard, index) => {
-        return <WordButton synCard={synCard.term} key={synCard + index} index={index} submitHandler={submitHandler} />
+        return <WordButton synCard={synCard.term} complete={synCard} key={synCard + index} index={index} submitHandler={submitHandler} />
       })
+
+      console.log('yard response', props.response)
 
     return (
     (<div className="d-flex flex-row flex-wrap">
