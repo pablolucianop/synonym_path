@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Badge from 'react-bootstrap/Badge'
 import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 import { SingleWord } from './SingleWord'
 import { useSpring, animated } from 'react-spring'
 
@@ -54,17 +55,24 @@ if( Array.isArray(splitted)){
 
     return (
       <animated.div style={propsi} className="p-2">
+
         <Card type="button" className="btn btn-light flex-row shadow p-3 mb-5 bg-white rounded border-0" style={props} >
+            <Card.Body>
+              <Card.Title>{navLinks}</Card.Title>
+
+              <Card.Text>
           <div className="d-flex flex-row">
             <div className="p-2" onClick={props.submitHandler}><animated.h5 style={propsi}>{
             // props.synCard
             }</animated.h5></div>
             {(props.eee !== undefined) ?  <div className="p-2"><span className="badge text-muted" onClick={submitHandler22}>╳</span></div> : ''}
           </div>
-          {navLinks}
-          {(props.complete !== undefined) ? <small> {props.complete.definition}</small> : ''}
+
+          {(props.complete !== undefined) ? props.complete.definition : ''}
             { 
             console.log('props.complete', props.complete)}
+                         </Card.Text>
+              </Card.Body>
                   
         </Card>
         

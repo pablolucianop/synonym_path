@@ -24,6 +24,6 @@ export function SingleWord (props)  {
 
 
     return (
-            <div type="button"  className="p-2" onClick={submitHandler3}>{props.word} </div>
+            <div type="button"   onClick={submitHandler3}>{props.word} </div>
     )
 }
