@@ -37,4 +37,3 @@ export class Closer extends React.Component {
         )
   }
 }
-

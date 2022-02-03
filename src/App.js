@@ -16,7 +16,7 @@ import Container from 'react-bootstrap/Container'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Yard } from './Yard'
 import { Closer } from './Closer'
-import { data } from './data'
+// import { data } from './data'
 import { useSpring, animated } from 'react-spring'
 
           <span className="font-link">
@@ -254,4 +254,3 @@ if( !Array.isArray(response.data.result)){
 
 
 export default App
-
